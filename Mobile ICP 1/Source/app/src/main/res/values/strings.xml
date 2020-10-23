@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">BasicApp</string>
+    <string name="login">LogIn</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="todo">TODO</string>
+    <string name="dont_have_any_account_signup_here">No Account? SignUp Here</string>
+    <string name="no_of_incorrect_attempts">Please Enter correct UserName or Password.....</string>
+    <string name="logout">LogOut</string>
+    <string name="welcome_to_basic_application">Welcome to my Application</string>
+    <string name="button">Button</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="enter_email">Enter Email</string>
+    <string name="last_name">Last Name</string>
+    <string name="first_name">First Name</string>
+    <string name="signup">SignUp</string>
+    <string name="phone">Phone</string>
+    <string name="torch">Torch</string>
+    <string name="calci">CalCi</string>
+    <string name="already_have_an_account_signin_here">Already have an account? SignIn here</string>
+</resources>
