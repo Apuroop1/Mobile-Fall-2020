@@ -7,16 +7,16 @@ import java.util.List;
 
 import io.realm.RealmList;
 import io.realm.RealmObject;
-import io.realm.RealmResults;
 import io.realm.annotations.PrimaryKey;
+import io.realm.annotations.Required;
 
 
-public class Category extends RealmObject {
+public class Category extends RealmObject implements IHaveId {
 
-    @PrimaryKey
+    @PrimaryKey @Required
     private String id;
 
-    private String name;
+    @Required private String name;
     private int type;
     private RealmList<Expense> expenses;
 

@@ -1,8 +1,8 @@
 package com.team9.expensetracker.adapters;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentStatePagerAdapter;
 
 import com.team9.expensetracker.R;
 import com.team9.expensetracker.ui.login.WelcomePage;

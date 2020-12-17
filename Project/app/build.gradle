@@ -1,14 +1,16 @@
 apply plugin: 'com.android.application'
+apply plugin: 'realm-android'
+
 //apply plugin: 'com.google.gms.google-services'
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion 28
     defaultConfig {
         applicationId "com.team9.expensetracker"
-        minSdkVersion 16
+        minSdkVersion 26
         targetSdkVersion 26
-        versionCode 12
-        versionName "1.7"
+        versionCode 13
+        versionName "2.0"
         javaCompileOptions {
             annotationProcessorOptions.includeCompileClasspath = true
         }
@@ -32,25 +34,28 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 repositories {
     maven { url "https://jitpack.io" }
 }
 
-def androidSdkVersion = "26.1.0"
-
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    testCompile 'junit:junit:4.12'
-//    compile 'com.google.android.gms:play-services:7.8.0'
-    compile "com.android.support:gridlayout-v7:$androidSdkVersion"
-    compile "com.android.support:support-annotations:$androidSdkVersion"
-    compile "com.android.support:appcompat-v7:$androidSdkVersion"
-    compile "com.android.support:design:$androidSdkVersion"
-    compile "com.android.support:recyclerview-v7:$androidSdkVersion"
-    compile "com.android.support:cardview-v7:$androidSdkVersion"
-    compile 'fr.avianey.com.viewpagerindicator:library:2.4.1@aar'
-    compile 'io.realm:realm-android:0.82.2'
-    compile 'com.github.PhilJay:MPAndroidChart:v2.1.4'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    testImplementation 'junit:junit:4.12'
+//    implementation 'com.google.android.gms:play-services:7.8.0'
+    implementation 'androidx.gridlayout:gridlayout:1.0.0'
+    implementation 'androidx.annotation:annotation:1.0.0'
+    implementation 'androidx.appcompat:appcompat:1.0.0'
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'fr.avianey.com.viewpagerindicator:library:2.4.1@aar'
+    implementation 'com.github.PhilJay:MPAndroidChart:v2.1.4'
+    implementation 'com.plaid.link:sdk-core:3.2.2'
+    implementation 'com.plaid:plaid-java:8.1.0'
 }

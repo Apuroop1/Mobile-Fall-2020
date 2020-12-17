@@ -5,7 +5,6 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +14,8 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import androidx.fragment.app.DialogFragment;
 
 import com.team9.expensetracker.R;
 import com.team9.expensetracker.adapters.CategoriesSpinnerAdapter;
@@ -110,7 +111,7 @@ public class NewExpenseFragment extends DialogFragment implements View.OnClickLi
                     etTotal.setText(String.valueOf(mExpense.getTotal()));
                     int categoryPosition = 0;
                     for (int i=0; i<categoriesArray.length; i++) {
-                        if (categoriesArray[i].getId().equalsIgnoreCase(mExpense.getCategory().getId())) {
+                        if (mExpense.getCategory() != null && categoriesArray[i].getId().equalsIgnoreCase(mExpense.getCategory().getId())) {
                             categoryPosition = i;
                             break;
                         }
@@ -149,7 +150,7 @@ public class NewExpenseFragment extends DialogFragment implements View.OnClickLi
                 String total = etTotal.getText().toString();
                 String description = etDescription.getText().toString();
                 if (mUserActionMode == IUserActionsMode.MODE_CREATE) {
-                    RealmManager.getInstance().save(new Expense(description, selectedDate, mExpenseType, currentCategory, Float.parseFloat(total)), Expense.class);
+                    RealmManager.getInstance().save(new Expense(description, selectedDate, mExpenseType, currentCategory, Float.parseFloat(total), null), Expense.class);
                 } else {
                     Expense editExpense = new Expense();
                     editExpense.setId(mExpense.getId());
@@ -157,6 +158,7 @@ public class NewExpenseFragment extends DialogFragment implements View.OnClickLi
                     editExpense.setDescription(description);
                     editExpense.setCategory(currentCategory);
                     editExpense.setDate(selectedDate);
+                    editExpense.setPlaidId(mExpense.getPlaidId());
                     RealmManager.getInstance().update(editExpense);
                 }
                 // update widget if the expense is created today

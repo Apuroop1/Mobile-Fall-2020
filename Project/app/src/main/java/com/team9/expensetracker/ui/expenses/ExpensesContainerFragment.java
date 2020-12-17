@@ -2,15 +2,10 @@ package com.team9.expensetracker.ui.expenses;
 
 
 import android.app.Activity;
-import android.app.PendingIntent;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
-import android.support.v4.content.LocalBroadcastManager;
-import android.support.v4.view.ViewPager;
-import android.util.Log;
+
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -18,6 +13,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+import androidx.viewpager.widget.ViewPager;
+
+import com.google.android.material.tabs.TabLayout;
 import com.team9.expensetracker.R;
 import com.team9.expensetracker.interfaces.IConstants;
 import com.team9.expensetracker.interfaces.IDateMode;
@@ -26,11 +25,6 @@ import com.team9.expensetracker.ui.MainActivity;
 import com.team9.expensetracker.ui.MainFragment;
 import com.team9.expensetracker.utils.DialogManager;
 import com.team9.expensetracker.utils.ExpensesManager;
-
-import java.util.Arrays;
-import java.util.List;
-
-
 
 
 public class ExpensesContainerFragment extends MainFragment implements ExpensesFragment.IExpenseContainerListener {

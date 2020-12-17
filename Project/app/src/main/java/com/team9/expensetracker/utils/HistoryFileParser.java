@@ -1,9 +1,11 @@
 package com.team9.expensetracker.utils;
 
+import com.team9.expensetracker.entities.Category;
 import com.team9.expensetracker.entities.Expense;
 import com.team9.expensetracker.interfaces.FileGeneratorParser;
 
 import java.util.List;
+import java.util.Optional;
 
 
 public class HistoryFileParser implements FileGeneratorParser {
@@ -16,7 +18,7 @@ public class HistoryFileParser implements FileGeneratorParser {
         contentBuilder.append(addNextLine());
         for (Expense expense : expenseList) {
             contentBuilder.append(Util.formatDateToString(expense.getDate(), Util.getCurrentDateFormat())).append(addTab());
-            contentBuilder.append(expense.getCategory().getName()).append(addTab());
+            contentBuilder.append(Optional.ofNullable(expense.getCategory()).map(Category::getName).orElse("")).append(addTab());
             contentBuilder.append(expense.getDescription()).append(addTab());
             contentBuilder.append(expense.getTotal()).append(addNextLine());
         }

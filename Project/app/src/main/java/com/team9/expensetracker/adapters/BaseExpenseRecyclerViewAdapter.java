@@ -1,7 +1,8 @@
 package com.team9.expensetracker.adapters;
 
-import android.support.v7.widget.RecyclerView;
 import android.util.SparseBooleanArray;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.team9.expensetracker.utils.ExpensesManager;
 

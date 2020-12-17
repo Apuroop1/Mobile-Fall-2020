@@ -1,18 +1,19 @@
 package com.team9.expensetracker.ui;
 
 import android.content.Context;
-import android.support.annotation.LayoutRes;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.annotation.LayoutRes;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
 
 import com.team9.expensetracker.R;
 import com.team9.expensetracker.interfaces.IFragmentListener;
 
 
-public class BaseFragment extends Fragment{
+public class BaseFragment extends Fragment {
 
     protected IFragmentListener mFragmentListener;
     protected Toolbar mToolbar;

@@ -1,17 +1,16 @@
 package com.team9.expensetracker.custom;
 
-import android.app.Fragment;
 import android.content.Context;
-import android.support.design.widget.CoordinatorLayout;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v4.view.ViewCompat;
-import android.support.v4.widget.NestedScrollView;
+
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.core.view.ViewCompat;
+import androidx.core.widget.NestedScrollView;
 import android.util.AttributeSet;
 import android.view.View;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.team9.expensetracker.ExpenseTrackerApp;
 import com.team9.expensetracker.R;
-import com.team9.expensetracker.ui.statistics.StatisticsFragment;
 
 
 public class FABScrollBehavior extends FloatingActionButton.Behavior {
@@ -22,7 +21,7 @@ public class FABScrollBehavior extends FloatingActionButton.Behavior {
 
     @Override
     public boolean onStartNestedScroll(CoordinatorLayout coordinatorLayout,
-            FloatingActionButton child, View directTargetChild, View target, int nestedScrollAxes) {
+                                       FloatingActionButton child, View directTargetChild, View target, int nestedScrollAxes) {
         String a = directTargetChild.getClass().getSimpleName();
         //excluding Statistics case and History for FAB behavior
         if (target instanceof NestedScrollView && target.getTag() != null) {

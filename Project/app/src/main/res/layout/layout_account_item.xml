@@ -20,9 +20,9 @@
         android:padding="@dimen/activity_horizontal_margin">
 
         <TextView
-            android:id="@+id/tv_title"
+            android:id="@+id/tv_name"
             style="@style/ExpenseTrackerTextView"
-            android:text="@string/categories"/>
+            android:text="@string/accounts"/>
 
     </RelativeLayout>
 

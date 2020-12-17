@@ -3,20 +3,17 @@ package com.team9.expensetracker.ui.expenses;
 import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
-import android.support.v4.content.LocalBroadcastManager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.team9.expensetracker.R;
 import com.team9.expensetracker.adapters.MainExpenseAdapter;
@@ -27,7 +24,6 @@ import com.team9.expensetracker.entities.Expense;
 import com.team9.expensetracker.interfaces.IConstants;
 import com.team9.expensetracker.interfaces.IDateMode;
 import com.team9.expensetracker.ui.MainFragment;
-import com.team9.expensetracker.utils.DialogManager;
 import com.team9.expensetracker.utils.ExpensesManager;
 
 public class ExpensesFragment extends MainFragment implements BaseViewHolder.RecyclerClickListener {

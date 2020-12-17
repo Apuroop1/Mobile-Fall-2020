@@ -9,6 +9,7 @@ import android.widget.RemoteViewsService;
 
 import com.team9.expensetracker.ExpenseTrackerApp;
 import com.team9.expensetracker.R;
+import com.team9.expensetracker.entities.Category;
 import com.team9.expensetracker.entities.Expense;
 import com.team9.expensetracker.interfaces.IExpensesType;
 import com.team9.expensetracker.ui.expenses.ExpenseDetailFragment;
@@ -18,6 +19,7 @@ import com.team9.expensetracker.utils.Util;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 import io.realm.Realm;
 
@@ -84,7 +86,7 @@ public class ListProvider implements RemoteViewsService.RemoteViewsFactory {
     public RemoteViews getViewAt(int position) {
         final RemoteViews remoteView = new RemoteViews(context.getPackageName(), R.layout.layout_expense_widget_item);
         Expense expense = expenseList.get(position);
-        remoteView.setTextViewText(R.id.tv_category, String.valueOf(expense.getCategory().getName()));
+        remoteView.setTextViewText(R.id.tv_category, Optional.ofNullable(expense.getCategory()).map(Category::getName).orElse(""));
         remoteView.setTextViewText(R.id.tv_description, expense.getDescription());
         remoteView.setTextViewText(R.id.tv_total, Util.getFormattedCurrency(expense.getTotal()));
         remoteView.setViewVisibility(R.id.tv_description, (expense.getDescription() != null && !expense.getDescription().isEmpty()) ? View.VISIBLE : View.GONE);
@@ -100,7 +102,7 @@ public class ListProvider implements RemoteViewsService.RemoteViewsFactory {
         Date today = DateUtils.getToday();
         Date tomorrow = DateUtils.getTomorrowDate();
         this.expenseList = new ArrayList<>();
-        Realm realm = Realm.getInstance(context);
+        Realm realm = Realm.getDefaultInstance();
         //sync realm instance with other instances
         realm.refresh();
         this.expenseList = Expense.cloneExpensesCollection(realm.where(Expense.class).between("date", today, tomorrow).findAll());
