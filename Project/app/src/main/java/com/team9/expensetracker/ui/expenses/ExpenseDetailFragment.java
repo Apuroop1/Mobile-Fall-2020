@@ -13,6 +13,7 @@ import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
 import com.team9.expensetracker.R;
+import com.team9.expensetracker.entities.Category;
 import com.team9.expensetracker.entities.Expense;
 import com.team9.expensetracker.interfaces.IExpensesType;
 import com.team9.expensetracker.interfaces.IUserActionsMode;
@@ -25,6 +26,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 public class ExpenseDetailFragment extends BaseFragment implements View.OnClickListener {
 
@@ -71,7 +73,7 @@ public class ExpenseDetailFragment extends BaseFragment implements View.OnClickL
         TextView tvExpenseTotal = ((TextView)getView().findViewById(R.id.tv_total));
         tvExpenseTotal.setText(Util.getFormattedCurrency(expense.getTotal()));
         tvExpenseTotal.setTextColor(getResources().getColor(expense.getType() == IExpensesType.MODE_EXPENSES ? R.color.colorAccentRed : R.color.colorAccentGreen));
-        ((TextView)getView().findViewById(R.id.tv_category)).setText(String.valueOf(expense.getCategory().getName()));
+        ((TextView)getView().findViewById(R.id.tv_category)).setText(Optional.ofNullable(expense.getCategory()).map(Category::getName).orElse(""));
         ((TextView)getView().findViewById(R.id.tv_description)).setText(String.valueOf(expense.getDescription()));
         ((TextView)getView().findViewById(R.id.tv_date)).setText(Util.formatDateToString(expense.getDate(), Util.getCurrentDateFormat()));
         (getView().findViewById(R.id.fab_edit)).setOnClickListener(this);

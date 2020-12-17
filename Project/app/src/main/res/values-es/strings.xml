@@ -86,6 +86,7 @@
     <string name="default_date_format">MM/dd/yyyy</string>
     <string name="date_format_key">date_format_key</string>
     <string name="date_format">Date Format</string>
+    <string name="accounts">Cuentas</string>
 
 
     <string-array name="date_formats">

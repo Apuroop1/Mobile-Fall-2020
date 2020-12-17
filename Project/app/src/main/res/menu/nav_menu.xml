@@ -21,5 +21,9 @@
             android:id="@+id/nav_history"
             android:icon="@drawable/ic_today_black_24dp"
             android:title="@string/history"/>
+        <item
+            android:id="@+id/nav_accounts"
+            android:icon="@drawable/ic_credit_card"
+            android:title="@string/accounts" />
     </group>
 </menu>

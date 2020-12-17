@@ -10,32 +10,39 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.annotation.Nullable;
+
 import io.realm.RealmObject;
 import io.realm.RealmQuery;
 import io.realm.RealmResults;
 import io.realm.annotations.PrimaryKey;
+import io.realm.annotations.Required;
 
 
-public class Expense extends RealmObject {
+public class Expense extends RealmObject implements IHaveId {
 
-    @PrimaryKey
+    @PrimaryKey @Required
     private String id;
 
-    private String description;
-    private Date date;
+    @Required private String description;
+    @Required private Date date;
     private @IExpensesType int type;
     private Category category;
     private float total;
 
+    @Nullable
+    private String plaidId;
+
     public Expense() {
     }
 
-    public Expense(String description, Date date, @IExpensesType int type, Category category, float total) {
+    public Expense(String description, Date date, @IExpensesType int type, Category category, float total, String plaidId) {
         this.description = description;
         this.date = date;
         this.type = type;
         this.category = category;
         this.total = total;
+        this.plaidId = plaidId;
     }
 
     public String getDescription() {
@@ -84,6 +91,15 @@ public class Expense extends RealmObject {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    @Nullable
+    public String getPlaidId() {
+        return plaidId;
+    }
+
+    public void setPlaidId(@Nullable String plaidId) {
+        this.plaidId = plaidId;
     }
 
     public static float getTotalExpensesByDateMode(@IDateMode int dateMode){
@@ -173,13 +189,16 @@ public class Expense extends RealmObject {
         for (Expense expense : expenseList) {
             Expense cloneExpense = new Expense();
             cloneExpense.setId(expense.getId());
-            Category category = new Category();
-            category.setName(expense.getCategory().getName());
-            cloneExpense.setCategory(category);
+            if (expense.getCategory() != null){
+                Category category = new Category();
+                category.setName(expense.getCategory().getName());
+                cloneExpense.setCategory(category);
+            }
             cloneExpense.setDate(expense.getDate());
             cloneExpense.setDescription(expense.getDescription());
             cloneExpense.setTotal(expense.getTotal());
             cloneExpense.setType(expense.getType());
+            cloneExpense.setPlaidId(expense.getPlaidId());
             clonedExpenses.add(cloneExpense);
         }
         return clonedExpenses;

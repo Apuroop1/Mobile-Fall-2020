@@ -8,9 +8,11 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.widget.RecyclerView;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.core.app.ActivityCompat;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -18,7 +20,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.team9.expensetracker.R;
 import com.team9.expensetracker.adapters.BaseExpenseAdapter;
@@ -28,7 +29,6 @@ import com.team9.expensetracker.custom.SelectDateFragment;
 import com.team9.expensetracker.custom.SparseBooleanArrayParcelable;
 import com.team9.expensetracker.custom.WrapContentManagerRecyclerView;
 import com.team9.expensetracker.entities.Expense;
-import com.team9.expensetracker.interfaces.FileGeneratorParser;
 import com.team9.expensetracker.interfaces.IConstants;
 import com.team9.expensetracker.interfaces.IExpensesType;
 import com.team9.expensetracker.interfaces.ISelectDateFragment;

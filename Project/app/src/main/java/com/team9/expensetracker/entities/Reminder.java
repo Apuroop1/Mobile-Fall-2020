@@ -17,18 +17,20 @@ import java.util.List;
 
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
+import io.realm.annotations.Required;
 
 
-public class Reminder extends RealmObject {
+public class Reminder extends RealmObject implements IHaveId {
 
-    @PrimaryKey
+    @PrimaryKey @Required
     private String id;
 
+    @Required
     private String name;
     private boolean state;
     private int day;
-    private Date date;
-    private Date createdAt;
+    @Required private Date date;
+    @Required private Date createdAt;
 
     public Reminder() {}
 

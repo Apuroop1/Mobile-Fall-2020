@@ -608,4 +608,12 @@
     <string name="ok">Ok</string>
     <string name="expenses_mail_content">Expenses Record by Expense Tracker</string>
     <string name="share_title">Send your record to your mail</string>
+    <string name="accounts">Accounts</string>
+    <string name="plaid_user_id_key">user_id</string>
+    <string name="plaid_file_key">plaid</string>
+    <string name="accounts_empty">There\'s no bank accounts linked with the expense tracker. Add one to enable synchronization with bank accounts.</string>
+    <string name="synch_now_title">Synchronize now?</string>
+    <string name="synch_now">Do you want to synchronize transactions from this account now?</string>
+    <string name="synchronize">Synchronize</string>
+    <string name="synchronizing">Synchronization in progress.</string>
 </resources>

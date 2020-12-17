@@ -1,8 +1,9 @@
 package com.team9.expensetracker.adapters;
 
-import android.support.v7.widget.RecyclerView;
 import android.util.SparseBooleanArray;
 import android.view.ViewGroup;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.team9.expensetracker.utils.ExpensesManager;
 
@@ -10,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-abstract class BaseRecyclerViewAdapter<VH extends RecyclerView.ViewHolder> extends RecyclerView.Adapter<VH> {
+public abstract class BaseRecyclerViewAdapter<VH extends RecyclerView.ViewHolder> extends RecyclerView.Adapter<VH> {
 
     private SparseBooleanArray selectedItems = new SparseBooleanArray();
 

@@ -1,21 +1,17 @@
 package com.team9.expensetracker.ui;
 
 import android.content.Intent;
-import android.graphics.drawable.Icon;
 import android.os.Bundle;
-import android.os.PersistableBundle;
-import android.support.annotation.DrawableRes;
-import android.support.annotation.IntDef;
-import android.support.design.widget.AppBarLayout;
-import android.support.design.widget.CoordinatorLayout;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.NavigationView;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.view.ViewPager;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.widget.Toolbar;
+
+import androidx.annotation.DrawableRes;
+import androidx.annotation.IntDef;
+import androidx.appcompat.widget.Toolbar;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
+
 import android.view.ActionMode;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -23,15 +19,17 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.google.android.material.appbar.AppBarLayout;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.tabs.TabLayout;
 import com.team9.expensetracker.R;
 import com.team9.expensetracker.entities.Expense;
-import com.team9.expensetracker.interfaces.IConstants;
 import com.team9.expensetracker.interfaces.IDateMode;
 import com.team9.expensetracker.interfaces.IMainActivityListener;
+import com.team9.expensetracker.ui.accounts.AccountsFragment;
 import com.team9.expensetracker.ui.categories.CategoriesFragment;
 import com.team9.expensetracker.ui.expenses.ExpensesContainerFragment;
-import com.team9.expensetracker.ui.expenses.ExpensesFragment;
-import com.team9.expensetracker.ui.expenses.ExpensesViewPagerAdapter;
 import com.team9.expensetracker.ui.help.HelpActivity;
 import com.team9.expensetracker.ui.history.HistoryFragment;
 import com.team9.expensetracker.ui.reminders.ReminderFragment;
@@ -309,6 +307,9 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
                 break;
             case R.id.nav_history:
                 if (!(currentFragment instanceof HistoryFragment)) replaceFragment(HistoryFragment.newInstance(), false);
+                break;
+            case R.id.nav_accounts:
+                if (!(currentFragment instanceof AccountsFragment)) replaceFragment(AccountsFragment.newInstance(), false);
                 break;
         }
     }
